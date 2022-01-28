@@ -1,3 +1,7 @@
+# Co-WIN-Public-App
+An angular application that will interact with Covid vaccination related public APIs provided by the Ministry of Health and Family Welfare, Government of India
+The application is developed with adherence to the guidelines of usage set by MoHFW as published in the link (https://apisetu.gov.in/document-central/cowin/Co-WIN%20API%20Guidelines.html)
+
 # CowinAppBySagar
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
