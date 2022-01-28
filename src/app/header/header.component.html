@@ -1,0 +1,45 @@
+<!-- <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a routerLink="/signin" class="navbar-brand">Co-WIN App</a>
+      </div>
+  
+      <div class=" navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li routerLinkActive="active" *ngIf="!isAuthenticated">
+            <a routerLink="/signin">Sign In</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li *ngIf="isAuthenticated">
+            <a style="cursor: pointer;" (click)="onLogout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+  <div class="header-blue">
+    <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a routerLink="/signin" class="navbar-brand">Co-WIN App</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li routerLinkActive="active" *ngIf="!isAuthenticated">
+                <a routerLink="/signin">Sign In</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated">
+              <li routerLinkActive="active" >
+                <a  (click)="onLogout()">Logout</a>
+              </li>
+              <li routerLinkActive="active" *ngIf="isAuthenticated">
+                <a routerLink="/certificate">Download Certificate</a>
+              </li>
+            </ul>
+          </div>
+          </div>
+    </nav>
+    </div>
+

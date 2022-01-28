@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div *ngIf="isLoading" style="text-align: center;">
+            <app-loading-spinner></app-loading-spinner>
+        </div>
+
+        <form #authForm="ngForm" (ngSubmit)="onSubmitAuthForm(authForm)" *ngIf="!isLoading && !isEnterOtp">
+            <span class="register-text">Register through Mobile</span>
+            <div class="form-group">
+                <label for="mobile">Enter your mobile number</label>
+                <input
+                  type="text"
+                  id="mobile"
+                  class="form-control"
+                  ngModel
+                  name="mobile"
+                  required
+                  maxlength="10"
+                  minlength="10"
+                >
+            </div>
+            <div style="padding-top:20px;">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!authForm.valid"
+                >Sign In
+                </button>
+            </div>
+        </form>
+        <form #otpForm = "ngForm" (ngSubmit) = "onSubmitOtpForm(otpForm)" *ngIf="isEnterOtp">
+            <span class="register-text">Register through Mobile</span><br>
+            <span style="font-size: small; color: darkred;">Please enter OTP sent to {{ mobileNumber }}</span>
+            <div class="form-group">
+                <input
+                    type="text"
+                    required
+                    pattern="[\d]"
+                    name="otp"
+                    ngModel
+                    minlength="6"
+                    class="form-control"
+                    id="otp"
+                    placeholder="Enter OTP"
+                >
+                <div  style="padding-top:20px;">
+                    <button
+                     class="btn btn-primary"
+                     type="submit"
+                    >Validate & Proceed</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

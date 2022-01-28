@@ -1,0 +1,26 @@
+<div class="container">
+<div class="jumbotron home-spacer">
+    <h1>Download your vaccination certificate</h1>
+    <p>Please follow the instructions mentioned below to download your vaccination certificate</p>
+</div>
+<hr>
+<form style="margin-top: 12px;" #p="ngForm" (ngSubmit) = "onGetCertificate(p)" class="col-md-6">
+    <div class="form-group">
+        <label for="bnf_id">Enter beneficiary ID</label>
+        <input
+          type="text"
+          required
+          ngModel
+          name="bnf_id"
+          class="form-control"
+          pattern = "^[1-9]+[0-9]*$"
+        >
+    </div>
+    <br>
+    <button 
+     type="submit" 
+     class="btn btn-primary"
+     [disabled] = "!p.valid"
+     >Search</button>
+</form>
+</div>
