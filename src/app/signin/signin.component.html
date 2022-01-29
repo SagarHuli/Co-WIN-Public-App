@@ -1,11 +1,11 @@
 <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3">
         <div *ngIf="isLoading" style="text-align: center;">
             <app-loading-spinner></app-loading-spinner>
         </div>
 
         <form #authForm="ngForm" (ngSubmit)="onSubmitAuthForm(authForm)" *ngIf="!isLoading && !isEnterOtp">
-            <span class="register-text">Register through Mobile</span>
+            <h1>Register through Mobile</h1>
             <div class="form-group">
                 <label for="mobile">Enter your mobile number</label>
                 <input
@@ -17,9 +17,13 @@
                   required
                   maxlength="10"
                   minlength="10"
+                  (keydown)="validateNumber($event)"
                 >
             </div>
-            <div style="padding-top:20px;">
+            <div>
+                <span style="font-size: small; color: darkred;" *ngIf="Submiterror">{{ Submiterror }}</span>
+            </div>
+            <div style=" align-content: center;">
                 <button
                   class="btn btn-primary"
                   type="submit"
@@ -29,8 +33,8 @@
             </div>
         </form>
         <form #otpForm = "ngForm" (ngSubmit) = "onSubmitOtpForm(otpForm)" *ngIf="isEnterOtp">
-            <span class="register-text">Register through Mobile</span><br>
-            <span style="font-size: small; color: darkred;">Please enter OTP sent to {{ mobileNumber }}</span>
+            <h1>Register through Mobile</h1><br>
+            <span style="font-size: small; color: darkred;">{{ actionMessage }}</span>
             <div class="form-group">
                 <input
                     type="text"
@@ -39,11 +43,16 @@
                     name="otp"
                     ngModel
                     minlength="6"
+                    maxlength="6"
                     class="form-control"
                     id="otp"
                     placeholder="Enter OTP"
-                >
-                <div  style="padding-top:20px;">
+                    (keydown)="validateNumber($event)"
+                ><br>
+                <div>
+                    <span style="font-size: small; color: darkred;" *ngIf="OtpError">{{ OtpError }}</span>
+                </div>
+                <div >
                     <button
                      class="btn btn-primary"
                      type="submit"

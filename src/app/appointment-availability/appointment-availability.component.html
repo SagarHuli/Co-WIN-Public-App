@@ -1,12 +1,11 @@
 <div class="container" id="content">
     <div class="jumbotron home-spacer" id="products-jumbotron">
-        <h1>Welcome to Co-win Public API portal</h1>
+        <h2>Welcome to Co-win Public API portal</h2>
         <p>We are all in this together.</p>
-
     </div>
-    <hr>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 20px;">
-        <label class="btn btn-secondary " [ngClass]="{'active': isVisible=='1'}">
+    <hr><br>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary" [ngClass]="{'active': isVisible=='1'}">
             <input type="radio" name="isVisible" [(ngModel)]="isVisible" [value]="1" [checked]="isSelected">Search By
             District
         </label>
@@ -14,15 +13,14 @@
             <input type="radio" name="isVisible" [(ngModel)]="isVisible" [value]="0" [checked]="!isSelected">Search By
             Pin
         </label>
-    </div>
-    <form #districtForm="ngForm" style="margin-top: 12px;" *ngIf="isVisible=='1'" (ngSubmit)="onSearchByDistrict(districtForm)" class="col-md-6">
+    </div><br>
+    <form #districtForm="ngForm" *ngIf="isVisible=='1'" (ngSubmit)="onSearchByDistrict(districtForm)" class="col-md-6">
         <div class="form-group">
             <label for="state">Select state</label>
             <select (change)="onStateSelected($event.target.value)" class="form-control" name="state" ngModel>
                 <option *ngFor="let state of states.states" value="{{state.state_id}}">{{state.state_name}}</option>
             </select>
         </div>
-        <br>
         <div *ngIf="stateSelected">
             <div class="form-group" >
                 <label for="district">Select district</label>
@@ -30,16 +28,13 @@
                     <option *ngFor="let district of districtsList.districts" value="{{district.district_id}}">{{district.district_name}}</option>
                 </select>
             </div>
-            <br>
             <div class="form-group" >
                 <my-datepicker (dateEmitter)="onDateSelected($event)"></my-datepicker>
             </div>
-            <br>
             <button [disabled] = "!districtForm.valid" type="submit" class="btn btn-primary">Search</button>
-        </div>
+        </div><br>
     </form>
-    <br>
-    <form style="margin-top: 12px;" #pinCodeForm="ngForm" *ngIf="isVisible=='0'" (ngSubmit) = "onSearchByPinCode(pinCodeForm)" class="col-md-6">
+    <form #pinCodeForm="ngForm" *ngIf="isVisible=='0'" (ngSubmit) = "onSearchByPinCode(pinCodeForm)" class="col-md-6">
         <div class="form-group">
             <label for="pincode">Enter pincode</label>
             <input
@@ -52,15 +47,14 @@
               minlength="6"
             >
         </div>
-        <br>
         <div class="form-group">
             <my-datepicker (dateEmitter)="onDateSelected($event)"></my-datepicker>
-        </div><br>
+        </div>
         <button 
          type="submit" 
          class="btn btn-primary"
          [disabled] = "!pinCodeForm.valid"
-         >Search</button>
+         >Search</button><br>
     </form>
     <div *ngIf="sessionFetched">
         <div *ngIf="isLoading" style="text-align: center;">
@@ -78,7 +72,7 @@
                  [session] = 'sessionEl'
                 ></app-session>
                 <br>
-                <div>
+                <div style="margin-bottom: 120px;">
                     <pagination-controls id="session_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
                 </div>
             </div>

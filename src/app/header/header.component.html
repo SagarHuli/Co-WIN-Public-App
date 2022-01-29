@@ -32,7 +32,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated">
               <li routerLinkActive="active" >
-                <a  (click)="onLogout()">Logout</a>
+                <a  (click)="onLogout()">Logout</a>&nbsp;&nbsp;
               </li>
               <li routerLinkActive="active" *ngIf="isAuthenticated">
                 <a routerLink="/certificate">Download Certificate</a>

@@ -1,10 +1,15 @@
-<div class="container">
+<div class="container col-md-9 col-md-offset-2">
 <div class="jumbotron home-spacer">
-    <h1>Download your vaccination certificate</h1>
-    <p>Please follow the instructions mentioned below to download your vaccination certificate</p>
+    <h2>Download your vaccination certificate</h2>
+    <h4>Please follow the instructions mentioned below to download your vaccination certificate.</h4>
 </div>
 <hr>
-<form style="margin-top: 12px;" #p="ngForm" (ngSubmit) = "onGetCertificate(p)" class="col-md-6">
+<div>
+    <p>In case you are unable to find the beneficiary id, please look into your inbox with a similar message shown below in the image</p>
+    <br>
+    <img src="assets/img/bnf_id.jpeg" class="img-responsive" alt="bnf_id" style="max-height: 200px;">
+</div>
+<form style="margin-top: 12px;margin-bottom: 120px;" #p="ngForm" (ngSubmit) = "onGetCertificate(p)" class="col-md-6">
     <div class="form-group">
         <label for="bnf_id">Enter beneficiary ID</label>
         <input
@@ -21,6 +26,6 @@
      type="submit" 
      class="btn btn-primary"
      [disabled] = "!p.valid"
-     >Search</button>
+     >Download</button>
 </form>
 </div>

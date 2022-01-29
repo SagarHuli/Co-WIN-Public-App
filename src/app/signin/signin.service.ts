@@ -104,7 +104,7 @@ export class SigninService{
 
     handleError(errorRes:HttpErrorResponse)
     {
-        return throwError(()=>errorRes.message);
+        return throwError(()=>errorRes.status);
     }
 
     setTxnId(txnId:string){

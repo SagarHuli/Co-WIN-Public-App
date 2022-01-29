@@ -16,10 +16,12 @@ import { SessionComponent } from './appointment-availability/session/session.com
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AuthInterceptorService } from './signin/auth.interceptor';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
     SigninComponent,
     LoadingSpinnerComponent,
     AppointmentAvailabilityComponent,
